@@ -1,0 +1,13 @@
+class Solution {
+    fun containsDuplicate(nums: IntArray): Boolean {
+     val map: MutableMap<Int, Int> = HashMap()
+        for (i in nums.indices) {
+                if (map.containsValue(nums[i])) {
+                    return true
+                }
+                map[i] = nums[i]
+
+        }
+        return false  
+    }
+}
