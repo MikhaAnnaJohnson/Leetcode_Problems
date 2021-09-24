@@ -1,0 +1,21 @@
+class Solution {
+    fun climbStairs(n: Int): Int {
+        return fib(n+1)
+    }
+    
+   fun fib(n: Int): Int {
+        val f = IntArray(n + 2)
+
+        f[0] = 0
+        f[1] = 1
+        var i: Int = 2
+        while (i <= n) {
+
+            /* Add the previous 2 numbers in the series
+         and store it */
+            f[i] = f[i - 1] + f[i - 2]
+            i++
+        }
+        return f[n]
+    }
+}
