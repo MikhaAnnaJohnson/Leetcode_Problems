@@ -1,0 +1,39 @@
+public static int lengthOfLIS(int[] nums) {
+        HashMap<Integer, Integer> map=new HashMap<Integer,Integer>();
+        int largest=0;
+        for(int i=0;i<nums.length;i++){
+        	map.clear();
+        	int count=0;
+        	map.put(count, nums[i]);
+        	count++;
+            for(int j=i;j<nums.length;j++){
+                
+                
+              
+                
+                try {
+                	if(!map.containsKey(nums[j+1])) {
+                		if(nums[j]<nums[j+1])
+                    	{
+                    		map.put(count, nums[j+1]);
+                    		count++;
+                    	}
+                	}
+                	
+                
+                }catch (Exception e) {
+					break;
+				}
+                               
+                
+        }
+            
+            if(largest<map.size())
+            	largest=map.size();
+        
+    }
+        
+        
+        
+        return largest;
+}
