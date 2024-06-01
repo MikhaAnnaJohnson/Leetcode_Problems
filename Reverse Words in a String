@@ -1,0 +1,24 @@
+A word is defined as a sequence of non-space characters. The words in s will be separated by at least one space.
+
+Return a string of the words in reverse order concatenated by a single space.
+
+Note that s may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.
+
+class Solution {
+public String reverseWords(String s) {
+        StringBuilder str = new StringBuilder();
+        // Split the string by spaces and remove extra spaces
+        String[] strArray = s.trim().split("\\s+");
+        int i = strArray.length - 1;
+        
+      
+        while (i >= 0) {
+            str.append(strArray[i]);
+            if (i != 0) {
+                str.append(" "); // Add space between words
+            }
+            i--;
+        }
+        return str.toString();
+    }
+}
