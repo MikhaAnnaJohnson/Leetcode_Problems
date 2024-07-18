@@ -1,0 +1,40 @@
+Given an input string s, reverse the order of the words.
+
+A word is defined as a sequence of non-space characters. The words in s will be separated by at least one space.
+
+Return a string of the words in reverse order concatenated by a single space.
+
+Note that s may contain leading or trailing spaces or multiple spaces between two words. The returned string should only have a single space separating the words. Do not include any extra spaces.
+
+public static String reverseVowels(String s) {
+        // Define a set of vowels for quick lookup
+        String vowels = "aeiouAEIOU";
+        // Convert the string to a char array to modify it
+        char[] chars = s.toCharArray();
+        
+        // Pointers to the beginning and end of the string
+        int left = 0;
+        int right = chars.length - 1;
+        
+        while (left < right) {
+            // Move left pointer until it points to a vowel
+            while (left < right && vowels.indexOf(chars[left]) == -1) {
+                left++;
+            }
+            // Move right pointer until it points to a vowel
+            while (left < right && vowels.indexOf(chars[right]) == -1) {
+                right--;
+            }
+            // Swap the vowels
+            if (left < right) {
+                char temp = chars[left];
+                chars[left] = chars[right];
+                chars[right] = temp;
+                left++;
+                right--;
+            }
+        }
+        
+        // Convert the char array back to a string
+        return new String(chars);
+    }
